@@ -1,0 +1,15 @@
+<!doctype html>
+<html ng-app="gourmetklub">
+  <head>
+  </head>
+  <body>
+    <div ng-controller="GourmetklubController as gourmetklub">
+      <div ng-repeat="restaurant in gourmetklub.restaurants">
+        {{ restaurant.name }}
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
