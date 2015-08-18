@@ -8,7 +8,7 @@
     uiGmapGoogleMapApi.then(function(maps) {
       $scope.key = "lol";
       $scope.coords = { latitude: 45, longitude: -73 };
-      $scope.map = { center: $scope.coords, zoom: 8 };
+      $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
     });
   });
 
