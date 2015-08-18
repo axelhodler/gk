@@ -1,8 +1,13 @@
 (function() {
-  var app = angular.module('gourmetklub', []);
+  var app = angular.module('gourmetklub', ['uiGmapgoogle-maps']);
 
-  app.controller('GourmetklubController', function() {
+
+  app.controller('GourmetklubController', function(uiGmapGoogleMapApi) {
     this.restaurants = restaurants;
+
+    uiGmapGoogleMapApi.then(function(maps) {
+      console.log("ready");
+    });
   });
 
   var restaurants = [
