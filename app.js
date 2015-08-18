@@ -2,11 +2,11 @@
   var app = angular.module('gourmetklub', ['uiGmapgoogle-maps']);
 
 
-  app.controller('GourmetklubController', function(uiGmapGoogleMapApi) {
+  app.controller('GourmetklubController', function($scope, uiGmapGoogleMapApi) {
     this.restaurants = restaurants;
 
     uiGmapGoogleMapApi.then(function(maps) {
-      console.log("ready");
+      $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
     });
   });
 

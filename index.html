@@ -1,12 +1,15 @@
 <!doctype html>
 <html ng-app="gourmetklub">
   <head>
+    <link rel="stylesheet" href="style.css"></script>
   </head>
   <body>
     <div ng-controller="GourmetklubController as gourmetklub">
       <div ng-repeat="restaurant in gourmetklub.restaurants">
         {{ restaurant.name }}
       </div>
+
+      <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
     </div>
 
     <script src="bower_components/angular/angular.js"></script>
