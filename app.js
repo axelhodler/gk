@@ -13,6 +13,6 @@
     {"name": "Ceylonas", "address": "Reinsburgstraße 74 70178 Stuttgart"},
     {"name": "Tshito Gwrito", "address": "Heinrich-Baumann-Straße 23, 70190 Stuttgart"},
     {"name": "Ebony", "address" : "Herzogstrasse 11, 70176 Stuttgart"},
-    {"name": "Gerüchteküche-Stuttgartt", "address": "Rotebühlstrasse 159, 70197 Stuttgart"}
+    {"name": "Gerüchteküche-Stuttgart", "address": "Rotebühlstrasse 159, 70197 Stuttgart"}
   ];
 })();
