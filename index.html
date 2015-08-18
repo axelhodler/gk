@@ -9,7 +9,12 @@
         {{ restaurant.name }}
       </div>
 
-      <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+      <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+        <ui-gmap-marker
+           idkey='key'
+           coords='coords'>
+        </ui-gmap-marker>
+      </ui-gmap-google-map>
     </div>
 
     <script src="bower_components/angular/angular.js"></script>
