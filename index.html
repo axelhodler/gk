@@ -9,7 +9,8 @@
         <div ng-repeat="restaurant in restaurants">
           <ui-gmap-marker
              idkey='restaurant.id'
-             coords='{latitude: restaurant.lat, longitude: restaurant.lng}'>
+             coords='{latitude: restaurant.lat, longitude: restaurant.lng}'
+             options='{"labelClass":"marker_labels","labelAnchor":"22 0", "labelContent": restaurant.name}'>
           </ui-gmap-marker>
         </div>
       </ui-gmap-google-map>
