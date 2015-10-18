@@ -12,8 +12,8 @@
 
     uiGmapGoogleMapApi.then(function(maps) {
       $scope.key = "lol";
-      $scope.coords = { latitude: 45, longitude: -73 };
-      $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+      $scope.coords = { latitude: 48.775, longitude: 9.183 };
+      $scope.map = { center: { latitude: 48.775 , longitude: 9.183 }, zoom: 13 };
     });
   });
 })();
