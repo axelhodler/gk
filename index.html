@@ -5,15 +5,13 @@
   </head>
   <body>
     <div ng-controller="GourmetklubController as gourmetklub">
-      <div ng-repeat="restaurant in restaurants">
-        {{ restaurant.name }}
-      </div>
-
       <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-        <ui-gmap-marker
-           idkey='key'
-           coords='coords'>
-        </ui-gmap-marker>
+        <div ng-repeat="restaurant in restaurants">
+          <ui-gmap-marker
+             idkey='restaurant.id'
+             coords='{latitude: restaurant.lat, longitude: restaurant.lng}'>
+          </ui-gmap-marker>
+        </div>
       </ui-gmap-google-map>
     </div>
 
