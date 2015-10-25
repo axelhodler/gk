@@ -1,0 +1,9 @@
+{
+  "name": "gourmetklub",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.8.0"
+  }
+}
