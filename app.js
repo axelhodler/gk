@@ -16,7 +16,6 @@
 
     var onMarkerClicked = function(marker) {
       marker.showWindow = true;
-      $scope.$apply();
     };
   });
 })();
