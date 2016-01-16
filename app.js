@@ -11,7 +11,7 @@
     });
 
     uiGmapGoogleMapApi.then(function(maps) {
-      $scope.map = { center: { latitude: 48.775 , longitude: 9.183 }, zoom: 13 };
+      $scope.map = { center: { latitude: 48.775 , longitude: 9.183 }, zoom: 12 };
     });
 
     var onMarkerClicked = function(marker) {
