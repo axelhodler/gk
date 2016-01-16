@@ -5,7 +5,7 @@
    options='{"labelClass":"marker_labels","labelAnchor":"22 0", "labelContent": restaurant.name}'>
   <ui-gmap-window show="restaurant.showWindow" closeClick="'closeClick'" ng-cloak>
     <div>
-      <p>this is an info window for <b>{{ restaurant.name }}</p>
+      <p>{{ restaurant.id }}. {{ restaurant.name }}</p>
     </div>
   </ui-gmap-window>
 
