@@ -4,6 +4,7 @@
   "description": "",
   "license": "MIT",
   "devDependencies": {
-    "http-server": "^0.8.0"
+    "http-server": "^0.8.0",
+    "jake": "^8.0.12"
   }
 }
