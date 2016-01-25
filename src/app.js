@@ -2,7 +2,7 @@
   var app = angular.module('gourmetklub', ['uiGmapgoogle-maps', 'ngResource']);
 
   app.factory('Restaurant', function($resource) {
-    return $resource('http://localhost:5111/restaurants');
+    return $resource('http://gkapi.hodler.co:5111/restaurants');
   });
 
   app.controller('GourmetklubController', function($scope, uiGmapGoogleMapApi, Restaurant) {
