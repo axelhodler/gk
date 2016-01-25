@@ -1,11 +1,13 @@
 (function() {
   var app = angular.module('gourmetklub', ['uiGmapgoogle-maps', 'ngResource']);
 
-  app.factory('Restaurant', function($resource) {
+  app.factory('Restaurant',['$resource', function($resource) {
     return $resource('http://gkapi.hodler.co:5111/restaurants');
-  });
+  }]);
 
-  app.controller('GourmetklubController', function($scope, uiGmapGoogleMapApi, Restaurant) {
+  app.controller('GourmetklubController', ['$scope', 'uiGmapGoogleMapApi', 'Restaurant',
+    function($scope, uiGmapGoogleMapApi, Restaurant) {
+
     Restaurant.get(function(data) {
       $scope.restaurants = data.restaurants;
     });
@@ -17,5 +19,5 @@
     var onMarkerClicked = function(marker) {
       marker.showWindow = true;
     };
-  });
+  }]);
 })();
