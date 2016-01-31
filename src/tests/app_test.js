@@ -11,24 +11,41 @@
 
   describe('app', function () {
     var restaurantStub = {
-      get: function() {
+      provides: function(data) {
+        this.data = data;
+        return this;
+      },
+      get: function(callback) {
+        var restaurants = {
+          restaurants: this.data
+        };
+        callback(restaurants);
       }
     };
 
     var uiGmapGoogleMapsStub = {
-      then: function() {
+      then: function(callback) {
+        callback();
       }
     };
 
-    it('could be tested', function () {
-      var $scope = {};
+    var $scope, controller;
+
+    beforeEach(function() {
+      $scope = {};
       var uiGmapGoogleMapApi = uiGmapGoogleMapsStub;
-      var Restaurant = restaurantStub;
-      var controller = $controller('GourmetklubController',
+      var Restaurant = restaurantStub.provides('{restaurantInfo}');
+      controller = $controller('GourmetklubController',
         { $scope: $scope,
           uiGmapGoogleMapApi: uiGmapGoogleMapApi,
           Restaurant: Restaurant});
+    });
 
+    it('sets the restaurants on the scope', function() {
+      expect($scope.restaurants).toBe('{restaurantInfo}');
+    });
+
+    it('shows info window on clicking the marker', function () {
       var marker = {};
       $scope.onMarkerClicked(marker);
 
