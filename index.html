@@ -1,7 +1,7 @@
 <!doctype html>
 <html ng-app="gourmetklub" ng-strict-di>
   <head>
-    <link rel="stylesheet" href="style.css"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div ng-controller="GourmetklubController as gourmetklub">
@@ -12,11 +12,13 @@
       </ui-gmap-google-map>
     </div>
 
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
-    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <!-- begin_autoreplace_with_uglyfied -->
+    <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/angular-resource/angular-resource.js"></script>
+    <script src="vendor/lodash/lodash.js"></script>
+    <script src="vendor/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="vendor/angular-google-maps/dist/angular-google-maps.js"></script>
     <script src="src/app.js"></script>
+    <!-- end -->
   </body>
 </html>
