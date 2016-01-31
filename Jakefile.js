@@ -4,7 +4,9 @@
   var fs = require("fs");
   var uglify = require("uglify-js");
   var replace = require('replace');
+  var karma = require("simplebuild-karma");
 
+  var KARMA_CONFIG = "karma.conf.js";
   var VENDOR_DIR = "vendor";
   desc("minifies source");
   task('default', function() {
@@ -21,6 +23,14 @@
       console.log("minified js source created");
     });
   })
+
+  desc("Start the Karma server (run this first)");
+  task("karma", function() {
+    console.log("Starting Karma server:");
+    karma.start({
+      configFile: KARMA_CONFIG
+    }, complete, fail);
+  }, { async: true });
 
   desc('replace libs in index.html with uglified');
   task('html-replace', function() {
