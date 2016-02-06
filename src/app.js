@@ -16,7 +16,7 @@
       $scope.map = { center: { latitude: 48.775 , longitude: 9.183 }, zoom: 12 };
     });
 
-    var onMarkerClicked = function(marker) {
+    $scope.onMarkerClicked = function(marker) {
       marker.showWindow = true;
     };
   }]);

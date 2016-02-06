@@ -1,3 +1,4 @@
 node_modules
 .idea
 vendor
+app.min.js
