@@ -1,4 +1,7 @@
+/* globals angular:false */
 (function() {
+  'use strict';
+
   var app = angular.module('gourmetklub', ['uiGmapgoogle-maps', 'ngResource']);
 
   app.factory('Restaurant',['$resource', function($resource) {
