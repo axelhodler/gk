@@ -1,3 +1,4 @@
+/* globals jake:false, desc:false, task:false, complete:false, fail:false, directory:false */
 (function () {
   'use strict';
 
@@ -5,6 +6,7 @@
   var uglify = require("uglify-js");
   var replace = require('replace');
   var karma = require("simplebuild-karma");
+  var jshint = require("simplebuild-jshint");
 
   var KARMA_CONFIG = "karma.conf.js";
   var VENDOR_DIR = "vendor";
@@ -22,7 +24,19 @@
       if (err) throw err;
       console.log("minified js source created");
     });
-  })
+  });
+
+  desc("Lint JavaScript code");
+  task("lint", function() {
+    process.stdout.write("Linting JavaScript: ");
+
+    jshint.checkFiles({
+      files: [ "Jakefile.js", "src/**/*.js" ],
+      options: lintOptions(),
+      globals: lintGlobals()
+    }, complete, fail);
+  }, { async: true });
+
 
   desc("Start the Karma server (run this first)");
   task("karma", function() {
@@ -41,4 +55,37 @@
       silent: true
     });
   });
+
+  function lintOptions() {
+    return {
+      bitwise: true,
+      eqeqeq: true,
+      forin: true,
+      freeze: true,
+      futurehostile: true,
+      latedef: "nofunc",
+      noarg: true,
+      nocomma: true,
+      nonbsp: true,
+      nonew: true,
+      strict: true,
+      undef: true,
+
+      node: true,
+      browser: true
+    };
+  }
+
+  function lintGlobals() {
+    return {
+      describe: false,
+      it: false,
+      before: false,
+      after: false,
+      expect: false,
+      beforeEach: false,
+      afterEach: false
+    };
+  }
+
 }());
