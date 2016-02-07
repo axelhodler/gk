@@ -3,25 +3,17 @@
 
   beforeEach(module('gourmetklub'));
 
-  var $controller;
+  var $controller,
+    httpBackend,
+    restaurant;
 
-  beforeEach(inject(function(_$controller_){
+  beforeEach(inject(function(_$controller_, _$httpBackend_, _Restaurant_){
     $controller = _$controller_;
+    httpBackend = _$httpBackend_;
+    restaurant = _Restaurant_;
   }));
 
   describe('app', function () {
-    var restaurantStub = {
-      provides: function(data) {
-        this.data = data;
-        return this;
-      },
-      get: function(callback) {
-        var restaurants = {
-          restaurants: this.data
-        };
-        callback(restaurants);
-      }
-    };
 
     var uiGmapGoogleMapsStub = {
       then: function(callback) {
@@ -34,14 +26,21 @@
     beforeEach(function() {
       $scope = {};
       var uiGmapGoogleMapApi = uiGmapGoogleMapsStub;
-      var Restaurant = restaurantStub.provides('{restaurantInfo}');
       controller = $controller('GourmetklubController',
         { $scope: $scope,
           uiGmapGoogleMapApi: uiGmapGoogleMapApi,
-          Restaurant: Restaurant});
+          Restaurant: restaurant});
+    });
+
+    beforeEach(function() {
+      var restaurants = {restaurants: '{restaurantInfo}'};
+      httpBackend.whenGET('http://gkapi.hodler.co:5111/restaurants')
+        .respond(restaurants);
     });
 
     it('sets the restaurants on the scope', function() {
+      httpBackend.flush();
+
       expect($scope.restaurants).toBe('{restaurantInfo}');
     });
 
