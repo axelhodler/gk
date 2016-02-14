@@ -30,8 +30,8 @@
     });
   });
 
-  desc("Prepares files for deployment")
-  task("prepare-deploy", ['minify','html-replace'], function() {
+  desc("Creates directory containing distributable files")
+  task("package", ['minify','html-replace'], function() {
     console.log("Building distribution directory: .");
 
     shell.rm("-rf", DIST_DIR + "/*");
