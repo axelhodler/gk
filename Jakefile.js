@@ -30,7 +30,7 @@
     });
   });
 
-  desc("Creates directory containing distributable files")
+  desc("Creates directory containing distributable files");
   task("package", ['minify','html-replace'], function() {
     console.log("Building distribution directory: .");
 
