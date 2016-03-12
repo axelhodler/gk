@@ -23,4 +23,11 @@
       marker.showWindow = true;
     };
   }]);
+
+  app.directive('restaurantSummary', function() {
+    return {
+      templateUrl: 'restaurant.html'
+    };
+  });
+
 })();

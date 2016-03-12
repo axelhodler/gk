@@ -7,7 +7,7 @@
     <div ng-controller="GourmetklubController as gourmetklub">
       <ui-gmap-google-map center='map.center' zoom='map.zoom'>
         <div ng-repeat="restaurant in restaurants">
-          <div ng-include="'restaurant.html'">
+          <div restaurant-summary></div>
         </div>
       </ui-gmap-google-map>
     </div>
