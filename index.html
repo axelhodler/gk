@@ -7,7 +7,19 @@
     <div ng-controller="GourmetklubController as gourmetklub">
       <ui-gmap-google-map center='map.center' zoom='map.zoom'>
         <div ng-repeat="restaurant in restaurants">
-          <div ng-include="'restaurant.html'">
+          <ui-gmap-marker
+            ng-click='onMarkerClicked(m)'
+            idkey='restaurant.id'
+            coords='{latitude: restaurant.lat, longitude: restaurant.lng}'
+            options='{"labelClass":"marker_labels","labelAnchor":"22 0", "labelContent": restaurant.name}'>
+            <ui-gmap-window show="restaurant.showWindow"
+                            closeClick="'closeClick'"
+                            templateUrl="'restaurant.html'"
+                            templateParameter="restaurant"
+                            ng-cloak>
+            </ui-gmap-window>
+
+          </ui-gmap-marker>
         </div>
       </ui-gmap-google-map>
     </div>

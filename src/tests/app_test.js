@@ -3,20 +3,26 @@
 (function() {
   'use strict';
 
-  beforeEach(module('gourmetklub'));
-
   var $controller,
     httpBackend,
+    scope,
+    compile,
     restaurant;
 
-  beforeEach(inject(function(_$controller_, _$httpBackend_, _Restaurant_){
+  beforeEach(module('gourmetklub'));
+
+  beforeEach(module('restaurant.html'));
+
+  beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_,
+                             _$compile_, _Restaurant_){
     $controller = _$controller_;
     httpBackend = _$httpBackend_;
+    scope = _$rootScope_;
+    compile = _$compile_;
     restaurant = _Restaurant_;
   }));
 
   describe('app', function () {
-
     var uiGmapGoogleMapsStub = {
       then: function(callback) {
         callback();
@@ -52,5 +58,19 @@
 
       expect(marker.showWindow).toBe(true);
     });
+
+    it('displays restaurant summary', function() {
+      scope.parameter = {
+        id: 1,
+        name: 'Mr. Smileys'
+      };
+      var element = compile("<div restaurant-summary></div>")(scope);
+
+      scope.$digest();
+
+      expect(element.html()).toContain(scope.parameter.id);
+      expect(element.html()).toContain(scope.parameter.name);
+    });
   });
+
 })();

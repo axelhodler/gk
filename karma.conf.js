@@ -19,7 +19,8 @@ module.exports = function(config) {
       'vendor/angular-simple-logger/dist/angular-simple-logger.js',
       'vendor/lodash/lodash.js',
       'src/app.js',
-      'src/tests/*.js'
+      'src/tests/*.js',
+      'restaurant.html'
     ],
 
 
@@ -31,8 +32,14 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'restaurant.html':['ng-html2js']
     },
 
+    plugins: [
+      'karma-phantomjs-launcher',
+      'karma-jasmine',
+      'karma-ng-html2js-preprocessor'
+    ],
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
