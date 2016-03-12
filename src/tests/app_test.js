@@ -60,7 +60,7 @@
     });
 
     it('displays restaurant summary', function() {
-      scope.restaurant = {
+      scope.parameter = {
         id: 1,
         name: 'Mr. Smileys'
       };
@@ -68,8 +68,8 @@
 
       scope.$digest();
 
-      expect(element.html()).toContain(scope.restaurant.id);
-      expect(element.html()).toContain(scope.restaurant.name);
+      expect(element.html()).toContain(scope.parameter.id);
+      expect(element.html()).toContain(scope.parameter.name);
     });
   });
 
