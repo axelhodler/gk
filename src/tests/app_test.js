@@ -11,7 +11,7 @@
 
   beforeEach(module('gourmetklub'));
 
-  beforeEach(module('restaurant.html'));
+  beforeEach(module('templates'));
 
   beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_,
                              _$compile_, _Restaurant_){

@@ -29,13 +29,13 @@
       scope: {
         restaurant: '='
       },
-      templateUrl: 'map_marker_window.html'
+      templateUrl: 'src/templates/map_marker_window.html'
     }
   });
 
   app.directive('restaurantSummary', function() {
     return {
-      templateUrl: 'restaurant.html'
+      templateUrl: 'src/templates/restaurant.html'
     };
   });
 

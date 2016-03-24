@@ -38,7 +38,8 @@
     shell.mkdir(DIST_DIR);
     shell.cp(MINIFIED_APP, DIST_DIR);
     shell.cp("index.html", DIST_DIR);
-    shell.cp("restaurant.html", DIST_DIR);
+    shell.cp("src/templates/restaurant.html", DIST_DIR);
+    shell.cp("src/templates/map_marker_window.html", DIST_DIR);
     shell.cp("style.css", DIST_DIR);
   });
 
