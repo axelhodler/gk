@@ -18,8 +18,7 @@ module.exports = function(config) {
       'vendor/angular-resource/angular-resource.js',
       'vendor/angular-simple-logger/dist/angular-simple-logger.js',
       'vendor/lodash/lodash.js',
-      'src/app.js',
-      'src/tests/*.js',
+      'src/*.js',
       'src/templates/restaurant.html'
     ],
 
