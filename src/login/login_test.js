@@ -47,6 +47,14 @@
       var html = element.html();
       expect(html).toContain('<input type="password"');
     });
+
+    it('has a login button', function() {
+      var element = compileLoginForm();
+
+      scope.$digest();
+
+      expect(element.html()).toContain('<input type="button"');
+    });
   });
 })();
 
