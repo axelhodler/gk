@@ -95,6 +95,7 @@
 
   function lintGlobals() {
     return {
+      angular: false,
       describe: false,
       it: false,
       before: false,
