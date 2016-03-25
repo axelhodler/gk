@@ -51,13 +51,29 @@
       expect(html).toContain('<input type="password"');
     });
 
-    it('has a login button', function() {
-      var element = compileLoginForm();
+    describe('Login Button', function() {
+      it('is initially disabled', function() {
+        var element = compileLoginForm();
 
-      scope.$digest();
+        scope.$digest();
 
-      expect(element.html()).toContain('<input type="button"');
-    });
+        expect(element.html()).toContain('<input type="button" disabled');
+      });
+
+      it('is only enabled if user and password fields have values', function() {
+        var dirElement = angular.element('<div gk-login></div>');
+        var element = compile(dirElement)(scope);
+
+        scope.$digest();
+
+        var usernameInput = dirElement.find('input')[0];
+        angular.element(usernameInput).val('foo').triggerHandler('input');
+        scope.$apply();
+
+        var usernameInput = dirElement.find('input')[0];
+        expect(usernameInput.value).toBe('foo');
+      });
+    })
   });
 })();
 
