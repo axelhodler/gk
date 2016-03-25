@@ -6,7 +6,7 @@
   angular.module('login', [])
     .directive('gkLogin', function() {
       return {
-        template: '<form><input /><input /></form>'
+        template: '<form><input /><input type="password"/></form>'
       }
     });
 })();

@@ -38,6 +38,15 @@
       html.replace('<input', '');
       expect(html).toContain('<input');
     });
+
+    it('has one password field', function() {
+      var element = compileLoginForm();
+
+      scope.$digest();
+
+      var html = element.html();
+      expect(html).toContain('<input type="password"');
+    });
   });
 })();
 
