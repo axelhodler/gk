@@ -24,9 +24,18 @@
     };
   }]);
 
+  app.directive('mapMarkerWindow', function() {
+    return {
+      scope: {
+        restaurant: '='
+      },
+      templateUrl: 'src/templates/map_marker_window.html'
+    }
+  });
+
   app.directive('restaurantSummary', function() {
     return {
-      templateUrl: 'restaurant.html'
+      templateUrl: 'src/templates/restaurant.html'
     };
   });
 

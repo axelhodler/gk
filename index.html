@@ -12,12 +12,7 @@
             idkey='restaurant.id'
             coords='{latitude: restaurant.lat, longitude: restaurant.lng}'
             options='{"labelClass":"marker_labels","labelAnchor":"22 0", "labelContent": restaurant.name}'>
-            <ui-gmap-window show="restaurant.showWindow"
-                            closeClick="'closeClick'"
-                            templateUrl="'restaurant.html'"
-                            templateParameter="restaurant"
-                            ng-cloak>
-            </ui-gmap-window>
+            <div map-marker-window restaurant="restaurant"></div>
 
           </ui-gmap-marker>
         </div>

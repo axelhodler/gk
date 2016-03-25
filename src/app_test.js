@@ -9,9 +9,10 @@
     compile,
     restaurant;
 
-  beforeEach(module('gourmetklub'));
-
-  beforeEach(module('restaurant.html'));
+  beforeEach(function() {
+    module('gourmetklub');
+    module('templates');
+  });
 
   beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_,
                              _$compile_, _Restaurant_){
@@ -58,7 +59,9 @@
 
       expect(marker.showWindow).toBe(true);
     });
+  });
 
+  describe('restaurant summary', function() {
     it('displays restaurant summary', function() {
       scope.parameter = {
         id: 1,
@@ -72,5 +75,4 @@
       expect(element.html()).toContain(scope.parameter.name);
     });
   });
-
 })();
