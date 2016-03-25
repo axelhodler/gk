@@ -19,6 +19,7 @@ module.exports = function(config) {
       'vendor/angular-simple-logger/dist/angular-simple-logger.js',
       'vendor/lodash/lodash.js',
       'src/**/*.js',
+      'src/login/templates/login_form.html',
       'src/map/templates/restaurant.html'
     ],
 
@@ -31,7 +32,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/map/templates/restaurant.html':['ng-html2js']
+      'src/map/templates/restaurant.html':['ng-html2js'],
+      'src/login/templates/login_form.html':['ng-html2js']
     },
 
     ngHtml2JsPreprocessor: {

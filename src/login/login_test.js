@@ -7,7 +7,10 @@
     var compile,
       scope;
 
-    beforeEach(module('login'));
+    beforeEach(function() {
+      module('login');
+      module('templates');
+    });
 
     beforeEach(inject(function(_$rootScope_, _$compile_) {
       scope = _$rootScope_;
@@ -25,7 +28,7 @@
 
       var html = element.html();
       expect(html).toContain('<form');
-      expect(html).toContain('></form>');
+      expect(html).toContain('</form>');
     });
 
     it('has two input fields', function() {
