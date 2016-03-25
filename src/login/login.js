@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  angular.module('gourmetklub')
+  angular.module('login', [])
     .directive('gkLogin', function() {
       return {
         template: '<form></form>'

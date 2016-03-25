@@ -20,7 +20,8 @@ module.exports = function(config) {
       'vendor/lodash/lodash.js',
       'src/map/app.js',
       'src/map/app_test.js',
-      'src/**/*.js',
+      'src/login/login.js',
+      'src/login/login_test.js',
       'src/map/templates/restaurant.html'
     ],
 

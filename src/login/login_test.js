@@ -7,7 +7,7 @@
     var compile,
       scope;
 
-    beforeEach(module('gourmetklub'));
+    beforeEach(module('login'));
 
     beforeEach(inject(function(_$rootScope_, _$compile_) {
       scope = _$rootScope_;
