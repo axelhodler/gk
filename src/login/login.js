@@ -7,6 +7,6 @@
     .directive('gkLogin', function() {
       return {
         templateUrl: 'src/login/templates/login_form.html'
-      }
+      };
     });
 })();

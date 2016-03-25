@@ -30,7 +30,7 @@
         restaurant: '='
       },
       templateUrl: 'src/map/templates/map_marker_window.html'
-    }
+    };
   });
 
   app.directive('restaurantSummary', function() {
