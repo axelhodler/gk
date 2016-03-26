@@ -7,6 +7,6 @@
         login: function(username, password) {
           $http.post('http://gkapi.hodler.co:5111/login');
         }
-      }
+      };
     });
 })();

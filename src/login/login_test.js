@@ -50,7 +50,7 @@
 
         expect(element.html()).toContain('ng-valid');
       });
-    })
+    });
   });
 })();
 

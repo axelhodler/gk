@@ -1,3 +1,5 @@
+/* globals inject:false */
+
 (function () {
   'use strict';
 
