@@ -73,6 +73,19 @@
     });
   });
 
+  desc('Runs lint, karma and protractor tests');
+  task('preparepush', ['lint','karma', 'smoke'], function() {
+    console.log('Running jshint, karma and protractor tests');
+  });
+
+  desc('run e2e smoke tests');
+  task('smoke', function() {
+    console.log('Starting protractor e2e tests');
+    jake.exec('protractor conf.js', {printStdout: true}, function () {
+      complete();
+    });
+  });
+
   function lintOptions() {
     return {
       bitwise: true,
@@ -97,15 +110,22 @@
     return {
       angular: false,
 
+      // angular testing
       inject: false,
 
+      // jasmine
       describe: false,
       it: false,
       before: false,
       after: false,
       expect: false,
       beforeEach: false,
-      afterEach: false
+      afterEach: false,
+
+      // protractor
+      browser: false,
+      element: false,
+      by: false
     };
   }
 
