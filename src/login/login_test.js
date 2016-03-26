@@ -21,27 +21,6 @@
       return compile('<div gk-login></div>')(scope);
     };
 
-    it('provides a login form', function() {
-      var element = compileLoginForm();
-
-      scope.$digest();
-
-      var html = element.html();
-      expect(html).toContain('<form');
-      expect(html).toContain('</form>');
-    });
-
-    it('has two input fields', function() {
-      var element = compileLoginForm();
-
-      scope.$digest();
-
-      var html = element.html();
-      expect(html).toContain('<input');
-      html.replace('<input', '');
-      expect(html).toContain('<input');
-    });
-
     it('has one password field', function() {
       var element = compileLoginForm();
 
