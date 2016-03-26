@@ -1,29 +1,27 @@
-/* globals inject:false */
-
 (function() {
   'use strict';
 
-  var $controller,
-    httpBackend,
-    scope,
-    compile,
-    restaurant;
+  describe('restaurantMap', function() {
+    var $controller,
+      httpBackend,
+      scope,
+      compile,
+      restaurant;
 
-  beforeEach(function() {
-    module('gourmetklub');
-    module('templates');
-  });
+    beforeEach(function() {
+      module('gk.restaurantMap');
+      module('templates');
+    });
 
-  beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_,
-                             _$compile_, _Restaurant_){
-    $controller = _$controller_;
-    httpBackend = _$httpBackend_;
-    scope = _$rootScope_;
-    compile = _$compile_;
-    restaurant = _Restaurant_;
-  }));
+    beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_,
+                               _$compile_, _Restaurant_){
+      $controller = _$controller_;
+      httpBackend = _$httpBackend_;
+      scope = _$rootScope_;
+      compile = _$compile_;
+      restaurant = _Restaurant_;
+    }));
 
-  describe('app', function () {
     var uiGmapGoogleMapsStub = {
       then: function(callback) {
         callback();
@@ -59,20 +57,20 @@
 
       expect(marker.showWindow).toBe(true);
     });
-  });
 
-  describe('restaurant summary', function() {
-    it('displays restaurant summary', function() {
-      scope.parameter = {
-        id: 1,
-        name: 'Mr. Smileys'
-      };
-      var element = compile("<div restaurant-summary></div>")(scope);
+    describe('restaurant summary', function() {
+      it('displays restaurant summary', function() {
+        scope.parameter = {
+          id: 1,
+          name: 'Mr. Smileys'
+        };
+        var element = compile("<div restaurant-summary></div>")(scope);
 
-      scope.$digest();
+        scope.$digest();
 
-      expect(element.html()).toContain(scope.parameter.id);
-      expect(element.html()).toContain(scope.parameter.name);
+        expect(element.html()).toContain(scope.parameter.id);
+        expect(element.html()).toContain(scope.parameter.name);
+      });
     });
   });
 })();
