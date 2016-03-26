@@ -22,7 +22,7 @@
       VENDOR_DIR + "/lodash/lodash.js",
       VENDOR_DIR + "/angular-google-maps/dist/angular-google-maps.js",
       VENDOR_DIR + "/angular-simple-logger/dist/angular-simple-logger.js",
-      "src/app.js"]);
+      "src/restaurant_map.js"]);
 
     fs.writeFile(MINIFIED_APP, result.code, function(err) {
       if (err) throw err;
