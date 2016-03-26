@@ -73,6 +73,11 @@
     });
   });
 
+  desc('Runs lint, karma and protractor tests');
+  task('preparepush', ['lint','karma', 'smoke'], function() {
+    console.log('Running jshint, karma and protractor tests');
+  });
+
   desc('run e2e smoke tests');
   task('smoke', function() {
     console.log('Starting protractor e2e tests');
