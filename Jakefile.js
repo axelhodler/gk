@@ -73,6 +73,14 @@
     });
   });
 
+  desc('run e2e smoke tests');
+  task('smoke', function() {
+    console.log('Starting protractor e2e tests');
+    jake.exec('protractor conf.js', {printStdout: true}, function () {
+      complete();
+    });
+  });
+
   function lintOptions() {
     return {
       bitwise: true,
