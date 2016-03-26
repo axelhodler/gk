@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app = angular.module('gourmetklub', ['uiGmapgoogle-maps', 'ngResource']);
+  var app = angular.module('gk.restaurantMap', ['uiGmapgoogle-maps', 'ngResource']);
 
   app.factory('Restaurant',['$resource', function($resource) {
     return $resource('http://gkapi.hodler.co:5111/restaurants');

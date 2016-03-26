@@ -5,7 +5,7 @@
     var loginService,
       httpBackend;
 
-    beforeEach(module('login'));
+    beforeEach(module('gk.login'));
 
     beforeEach(inject(function(_loginService_, _$httpBackend_) {
       loginService = _loginService_;

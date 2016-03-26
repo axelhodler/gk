@@ -8,7 +8,7 @@
       scope;
 
     beforeEach(function() {
-      module('login');
+      module('gk.login');
       module('templates');
     });
 

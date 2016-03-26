@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('login')
+  angular.module('gk.login')
     .service('loginService', function($http) {
       return {
         login: function(username, password) {

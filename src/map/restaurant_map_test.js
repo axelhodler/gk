@@ -3,7 +3,7 @@
 (function() {
   'use strict';
 
-  describe('gourmetklub', function() {
+  describe('restaurantMap', function() {
     var $controller,
       httpBackend,
       scope,
@@ -11,7 +11,7 @@
       restaurant;
 
     beforeEach(function() {
-      module('gourmetklub');
+      module('gk.restaurantMap');
       module('templates');
     });
 
