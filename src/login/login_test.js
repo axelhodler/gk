@@ -57,21 +57,19 @@
 
         scope.$digest();
 
-        expect(element.html()).toContain('<input type="button" disabled');
+        expect(element.html()).toContain('<input type="button" ng-disabled');
       });
 
       it('is only enabled if user and password fields have values', function() {
         var dirElement = angular.element('<div gk-login></div>');
         var element = compile(dirElement)(scope);
-
         scope.$digest();
 
-        var usernameInput = dirElement.find('input')[0];
-        angular.element(usernameInput).val('foo').triggerHandler('input');
+        angular.element(dirElement.find('input')[0]).val('foo').triggerHandler('input');
+        angular.element(dirElement.find('input')[1]).val('bar').triggerHandler('input');
         scope.$apply();
 
-        var usernameInput = dirElement.find('input')[0];
-        expect(usernameInput.value).toBe('foo');
+        expect(element.html()).toContain('ng-valid');
       });
     })
   });
