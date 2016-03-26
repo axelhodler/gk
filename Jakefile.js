@@ -97,15 +97,22 @@
     return {
       angular: false,
 
+      // angular testing
       inject: false,
 
+      // jasmine
       describe: false,
       it: false,
       before: false,
       after: false,
       expect: false,
       beforeEach: false,
-      afterEach: false
+      afterEach: false,
+
+      // protractor
+      browser: false,
+      element: false,
+      by: false
     };
   }
 
