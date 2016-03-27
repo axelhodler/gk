@@ -12,10 +12,11 @@
       httpBackend = _$httpBackend_;
     }));
 
-    it('exists', function() {
+    it('provides credentials to the server', function() {
       loginService.login('username', 'password');
 
-      httpBackend.expectPOST('http://gkapi.hodler.co:5111/login').respond({});
+      httpBackend.expectPOST('http://gkapi.hodler.co:5111/login',
+        '{"username":"username","password":"password"}').respond({});
       httpBackend.flush();
     });
   });
