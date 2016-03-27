@@ -76,9 +76,9 @@
     });
   });
 
-  desc('Runs lint, karma and protractor tests');
-  task('prepush', ['lint','karma', 'smoke'], function() {
-    console.log('Running jshint, karma and protractor tests');
+  desc('Run lint and karma against source, then package and run protractor against');
+  task('prepush', ['lint','karma', 'package'], function() {
+    shell.exec('http-server & ./jake.sh smoke && kill %1');
   });
 
   desc('run e2e smoke tests');
