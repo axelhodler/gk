@@ -74,7 +74,7 @@
   });
 
   desc('Runs lint, karma and protractor tests');
-  task('preparepush', ['lint','karma', 'smoke'], function() {
+  task('prepush', ['lint','karma', 'smoke'], function() {
     console.log('Running jshint, karma and protractor tests');
   });
 
