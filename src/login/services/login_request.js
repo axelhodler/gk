@@ -2,10 +2,10 @@
   'use strict';
 
   angular.module('gk.login')
-    .service('loginService', function($http) {
+    .service('loginService', function($http, REST_URL) {
       return {
         login: function(username, password) {
-          $http.post('http://gkapi.hodler.co:5111/login',
+          $http.post(REST_URL + '/login',
             {
               'username':username,
               'password':password

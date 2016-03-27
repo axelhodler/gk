@@ -6,7 +6,8 @@
       httpBackend,
       scope,
       compile,
-      restaurant;
+      restaurant,
+      restUrl;
 
     beforeEach(function() {
       module('gk.restaurantMap');
@@ -14,12 +15,13 @@
     });
 
     beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_,
-                               _$compile_, _Restaurant_){
+                               _$compile_, _Restaurant_, _REST_URL_){
       $controller = _$controller_;
       httpBackend = _$httpBackend_;
       scope = _$rootScope_;
       compile = _$compile_;
       restaurant = _Restaurant_;
+      restUrl = _REST_URL_;
     }));
 
     var uiGmapGoogleMapsStub = {
@@ -41,7 +43,7 @@
 
     beforeEach(function() {
       var restaurants = {restaurants: '{restaurantInfo}'};
-      httpBackend.whenGET('http://gkapi.hodler.co:5111/restaurants')
+      httpBackend.whenGET(restUrl + '/restaurants')
         .respond(restaurants);
     });
 

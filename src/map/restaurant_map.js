@@ -1,10 +1,10 @@
 (function() {
   'use strict';
 
-  var app = angular.module('gk.restaurantMap', ['uiGmapgoogle-maps', 'ngResource']);
+  var app = angular.module('gk.restaurantMap', ['uiGmapgoogle-maps', 'ngResource', 'gk.common']);
 
-  app.factory('Restaurant',['$resource', function($resource) {
-    return $resource('http://gkapi.hodler.co:5111/restaurants');
+  app.factory('Restaurant',['$resource', 'REST_URL', function($resource, REST_URL) {
+    return $resource(REST_URL + '/restaurants');
   }]);
 
   app.controller('GourmetklubController', ['$scope', 'uiGmapGoogleMapApi', 'Restaurant',

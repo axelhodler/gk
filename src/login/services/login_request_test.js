@@ -3,19 +3,23 @@
 
   describe('LoginService', function() {
     var loginService,
-      httpBackend;
+      httpBackend,
+      restUrl;
 
-    beforeEach(module('gk.login'));
+    beforeEach(function() {
+      module('gk.login');
+    });
 
-    beforeEach(inject(function(_loginService_, _$httpBackend_) {
+    beforeEach(inject(function(_loginService_, _$httpBackend_, _REST_URL_) {
       loginService = _loginService_;
       httpBackend = _$httpBackend_;
+      restUrl = _REST_URL_;
     }));
 
     it('provides credentials to the server', function() {
       loginService.login('username', 'password');
 
-      httpBackend.expectPOST('http://gkapi.hodler.co:5111/login',
+      httpBackend.expectPOST(restUrl + '/login',
         '{"username":"username","password":"password"}').respond({});
       httpBackend.flush();
     });
