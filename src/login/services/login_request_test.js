@@ -3,19 +3,27 @@
 
   describe('LoginService', function() {
     var loginService,
-      httpBackend;
+      httpBackend,
+      restUrl,
+      Credentials;
 
-    beforeEach(module('gk.login'));
+    beforeEach(function() {
+      module('gk.login');
+    });
 
-    beforeEach(inject(function(_loginService_, _$httpBackend_) {
+    beforeEach(inject(function(_loginService_, _$httpBackend_, _Credentials_, _REST_URL_) {
       loginService = _loginService_;
       httpBackend = _$httpBackend_;
+      restUrl = _REST_URL_;
+      Credentials = _Credentials_;
     }));
 
-    it('exists', function() {
-      loginService.login('username', 'password');
+    it('provides credentials to the server', function() {
+      var credentials = new Credentials('username', 'password');
 
-      httpBackend.expectPOST('http://gkapi.hodler.co:5111/login').respond({});
+      loginService.login(credentials);
+
+      httpBackend.expectPOST(restUrl + '/login', credentials).respond({});
       httpBackend.flush();
     });
   });

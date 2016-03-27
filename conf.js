@@ -1,4 +1,4 @@
 exports.config = {
   directConnect: true,
-  specs: ['src/specs/todo-spec.js']
+  specs: ['src/specs/restaurant_map_spec.js']
 };
