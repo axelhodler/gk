@@ -40,7 +40,7 @@
     var templateDir = 'dist/src/map/templates';
     shell.mkdir('-p', templateDir);
     shell.cp(MINIFIED_APP, DIST_DIR);
-    shell.cp("index.html", DIST_DIR);
+    shell.mv("generated_index.html", DIST_DIR + "/index.html");
     shell.cp("src/map/templates/restaurant.html", templateDir);
     shell.cp("src/map/templates/map_marker_window.html", templateDir);
     shell.cp("style.css", DIST_DIR);
@@ -68,10 +68,11 @@
 
   desc('replace libs in index.html with uglified');
   task('html-replace', function() {
+    shell.cp('index.html', 'generated_index.html');
     replace({
       regex: '<!-- begin_autoreplace_with_uglyfied -->(.|\n)*<!-- end -->',
       replacement: '<script src="app.min.js"></script>',
-      paths: ['index.html'],
+      paths: ['generated_index.html'],
       silent: true
     });
   });
