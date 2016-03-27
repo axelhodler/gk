@@ -4,23 +4,26 @@
   describe('LoginService', function() {
     var loginService,
       httpBackend,
-      restUrl;
+      restUrl,
+      Credentials;
 
     beforeEach(function() {
       module('gk.login');
     });
 
-    beforeEach(inject(function(_loginService_, _$httpBackend_, _REST_URL_) {
+    beforeEach(inject(function(_loginService_, _$httpBackend_, _Credentials_, _REST_URL_) {
       loginService = _loginService_;
       httpBackend = _$httpBackend_;
       restUrl = _REST_URL_;
+      Credentials = _Credentials_;
     }));
 
     it('provides credentials to the server', function() {
-      loginService.login('username', 'password');
+      var credentials = new Credentials('username', 'password');
 
-      httpBackend.expectPOST(restUrl + '/login',
-        '{"username":"username","password":"password"}').respond({});
+      loginService.login(credentials);
+
+      httpBackend.expectPOST(restUrl + '/login', credentials).respond({});
       httpBackend.flush();
     });
   });
