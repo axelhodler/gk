@@ -22,7 +22,9 @@
       VENDOR_DIR + "/lodash/lodash.js",
       VENDOR_DIR + "/angular-google-maps/dist/angular-google-maps.js",
       VENDOR_DIR + "/angular-simple-logger/dist/angular-simple-logger.js",
-      "src/restaurant_map.js"]);
+      'src/app.js',
+      'src/common/common.js',
+      'src/map/restaurant_map.js']);
 
     fs.writeFile(MINIFIED_APP, result.code, function(err) {
       if (err) throw err;
@@ -35,11 +37,12 @@
     console.log("Building distribution directory: .");
 
     shell.rm("-rf", DIST_DIR + "/*");
-    shell.mkdir(DIST_DIR);
+    var templateDir = 'dist/src/map/templates';
+    shell.mkdir('-p', templateDir);
     shell.cp(MINIFIED_APP, DIST_DIR);
     shell.cp("index.html", DIST_DIR);
-    shell.cp("src/templates/restaurant.html", DIST_DIR);
-    shell.cp("src/templates/map_marker_window.html", DIST_DIR);
+    shell.cp("src/map/templates/restaurant.html", templateDir);
+    shell.cp("src/map/templates/map_marker_window.html", templateDir);
     shell.cp("style.css", DIST_DIR);
   });
 
