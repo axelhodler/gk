@@ -2,84 +2,92 @@
 (function () {
   'use strict';
 
-  var fs = require("fs");
-  var uglify = require("uglify-js");
+  var fs = require('fs');
+  var uglify = require('uglify-js');
   var replace = require('replace');
-  var karma = require("simplebuild-karma");
-  var jshint = require("simplebuild-jshint");
-  var shell = require("shelljs");
+  var karma = require('simplebuild-karma');
+  var jshint = require('simplebuild-jshint');
+  var shell = require('shelljs');
 
-  var KARMA_CONFIG = "karma.conf.js";
-  var VENDOR_DIR = "vendor";
-  var DIST_DIR = "dist";
-  var MINIFIED_APP = "app.min.js";
+  var KARMA_CONFIG = 'karma.conf.js';
+  var VENDOR_DIR = 'vendor';
+  var DIST_DIR = 'dist';
+  var MINIFIED_APP = 'app.min.js';
+  var INDEX_HTML = 'index.html';
+  var GENERATED_INDEX_HTML = 'generated_index.html';
 
-  desc("minifies source");
+  var SMOKE_TASK = 'smoke';
+
+  desc('minifies source');
   task('minify', function() {
     var result = uglify.minify([
-      VENDOR_DIR + "/angular/angular.js",
-      VENDOR_DIR + "/angular-resource/angular-resource.js",
-      VENDOR_DIR + "/lodash/lodash.js",
-      VENDOR_DIR + "/angular-google-maps/dist/angular-google-maps.js",
-      VENDOR_DIR + "/angular-simple-logger/dist/angular-simple-logger.js",
-      "src/restaurant_map.js"]);
+      VENDOR_DIR + '/angular/angular.js',
+      VENDOR_DIR + '/angular-resource/angular-resource.js',
+      VENDOR_DIR + '/lodash/lodash.js',
+      VENDOR_DIR + '/angular-google-maps/dist/angular-google-maps.js',
+      VENDOR_DIR + '/angular-simple-logger/dist/angular-simple-logger.js',
+      'src/app.js',
+      'src/common/common.js',
+      'src/map/restaurant_map.js']);
 
     fs.writeFile(MINIFIED_APP, result.code, function(err) {
       if (err) throw err;
-      console.log("minified js source created");
+      console.log('minified js source created');
     });
   });
 
-  desc("Creates directory containing distributable files");
-  task("package", ['minify','html-replace'], function() {
-    console.log("Building distribution directory: .");
+  desc('Creates directory containing distributable files');
+  task('package', ['minify','html-replace'], function() {
+    console.log('Building distribution directory: .');
 
-    shell.rm("-rf", DIST_DIR + "/*");
-    shell.mkdir(DIST_DIR);
+    shell.rm('-rf', DIST_DIR + '/*');
+    var templateDir = 'dist/src/map/templates';
+    shell.mkdir('-p', templateDir);
     shell.cp(MINIFIED_APP, DIST_DIR);
-    shell.cp("index.html", DIST_DIR);
-    shell.cp("src/templates/restaurant.html", DIST_DIR);
-    shell.cp("src/templates/map_marker_window.html", DIST_DIR);
-    shell.cp("style.css", DIST_DIR);
+    shell.mv(GENERATED_INDEX_HTML, DIST_DIR + '/' + INDEX_HTML);
+    shell.cp('src/map/templates/restaurant.html', templateDir);
+    shell.cp('src/map/templates/map_marker_window.html', templateDir);
+    shell.cp('style.css', DIST_DIR);
   });
 
-  desc("Lint JavaScript code");
-  task("lint", function() {
-    process.stdout.write("Linting JavaScript: ");
+  desc('Lint JavaScript code');
+  task('lint', function() {
+    process.stdout.write('Linting JavaScript: ');
 
     jshint.checkFiles({
-      files: [ "Jakefile.js", "src/**/*.js" ],
+      files: [ 'Jakefile.js', 'src/**/*.js' ],
       options: lintOptions(),
       globals: lintGlobals()
     }, complete, fail);
   }, { async: true });
 
 
-  desc("Start the Karma server (run this first)");
-  task("karma", function() {
-    console.log("Starting Karma server:");
+  desc('Start the Karma server (run this first)');
+  task('karma', function() {
+    console.log('Starting Karma server:');
     karma.start({
       configFile: KARMA_CONFIG
     }, complete, fail);
   }, { async: true });
 
-  desc('replace libs in index.html with uglified');
+  desc('replace libs in ' + INDEX_HTML + ' with uglified');
   task('html-replace', function() {
+    shell.cp(INDEX_HTML, GENERATED_INDEX_HTML);
     replace({
       regex: '<!-- begin_autoreplace_with_uglyfied -->(.|\n)*<!-- end -->',
       replacement: '<script src="app.min.js"></script>',
-      paths: ['index.html'],
+      paths: [GENERATED_INDEX_HTML],
       silent: true
     });
   });
 
-  desc('Runs lint, karma and protractor tests');
-  task('prepush', ['lint','karma', 'smoke'], function() {
-    console.log('Running jshint, karma and protractor tests');
+  desc('Run lint and karma against source, then package and run protractor against');
+  task('prepush', ['lint','karma', 'package'], function() {
+    shell.exec('http-server & ./jake.sh ' + SMOKE_TASK + ' && kill %1');
   });
 
   desc('run e2e smoke tests');
-  task('smoke', function() {
+  task(SMOKE_TASK, function() {
     console.log('Starting protractor e2e tests');
     jake.exec('protractor conf.js', {printStdout: true}, function () {
       complete();
@@ -93,7 +101,7 @@
       forin: true,
       freeze: true,
       futurehostile: true,
-      latedef: "nofunc",
+      latedef: 'nofunc',
       noarg: true,
       nocomma: true,
       nonbsp: true,
