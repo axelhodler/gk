@@ -1,5 +1,8 @@
-node_modules
 .idea
 vendor
 app.min.js
 dist/
+# binaries of the dependencies after npm rebuild
+node_modules/fsevents/lib/
+node_modules/phantomjs-prebuilt/lib/location.js
+node_modules/phantomjs/lib/location.js

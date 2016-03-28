@@ -83,13 +83,13 @@
 
   desc('Run lint and karma against source, then package and run protractor against');
   task('prepush', ['lint','karma', 'package'], function() {
-    shell.exec('http-server & ./jake.sh ' + SMOKE_TASK + ' && kill %1');
+    shell.exec('./node_modules/http-server/bin/http-server & ./jake.sh ' + SMOKE_TASK + ' && kill %1');
   });
 
   desc('run e2e smoke tests');
   task(SMOKE_TASK, function() {
     console.log('Starting protractor e2e tests');
-    jake.exec('protractor conf.js', {printStdout: true}, function () {
+    jake.exec('./node_modules/protractor/bin/protractor conf.js', {printStdout: true}, function () {
       complete();
     });
   });
