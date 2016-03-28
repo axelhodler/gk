@@ -13,6 +13,10 @@
   var VENDOR_DIR = "vendor";
   var DIST_DIR = "dist";
   var MINIFIED_APP = "app.min.js";
+  var INDEX_HTML = 'index.html';
+  var GENERATED_INDEX_HTML = 'generated_index.html';
+
+  var SMOKE_TASK = 'smoke';
 
   desc("minifies source");
   task('minify', function() {
@@ -40,7 +44,7 @@
     var templateDir = 'dist/src/map/templates';
     shell.mkdir('-p', templateDir);
     shell.cp(MINIFIED_APP, DIST_DIR);
-    shell.mv("generated_index.html", DIST_DIR + "/index.html");
+    shell.mv(GENERATED_INDEX_HTML, DIST_DIR + "/" + INDEX_HTML);
     shell.cp("src/map/templates/restaurant.html", templateDir);
     shell.cp("src/map/templates/map_marker_window.html", templateDir);
     shell.cp("style.css", DIST_DIR);
@@ -66,24 +70,24 @@
     }, complete, fail);
   }, { async: true });
 
-  desc('replace libs in index.html with uglified');
+  desc('replace libs in ' + INDEX_HTML + ' with uglified');
   task('html-replace', function() {
-    shell.cp('index.html', 'generated_index.html');
+    shell.cp(INDEX_HTML, GENERATED_INDEX_HTML);
     replace({
       regex: '<!-- begin_autoreplace_with_uglyfied -->(.|\n)*<!-- end -->',
       replacement: '<script src="app.min.js"></script>',
-      paths: ['generated_index.html'],
+      paths: [GENERATED_INDEX_HTML],
       silent: true
     });
   });
 
   desc('Run lint and karma against source, then package and run protractor against');
   task('prepush', ['lint','karma', 'package'], function() {
-    shell.exec('http-server & ./jake.sh smoke && kill %1');
+    shell.exec('http-server & ./jake.sh ' + SMOKE_TASK + ' && kill %1');
   });
 
   desc('run e2e smoke tests');
-  task('smoke', function() {
+  task(SMOKE_TASK, function() {
     console.log('Starting protractor e2e tests');
     jake.exec('protractor conf.js', {printStdout: true}, function () {
       complete();
