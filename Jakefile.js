@@ -89,7 +89,7 @@
   desc('run e2e smoke tests');
   task(SMOKE_TASK, function() {
     console.log('Starting protractor e2e tests');
-    jake.exec('protractor conf.js', {printStdout: true}, function () {
+    jake.exec('./node_modules/protractor/bin/protractor conf.js', {printStdout: true}, function () {
       complete();
     });
   });
