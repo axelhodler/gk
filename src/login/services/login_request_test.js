@@ -55,5 +55,13 @@
 
       expect(TokenRepoSpy.store).toHaveBeenCalledWith('webtoken');
     });
+
+    it('does not store webtoken after failed login', function() {
+      loginService.login(credentials);
+      httpBackend.expectPOST(restUrl + '/login', credentials).respond(401);
+      httpBackend.flush();
+
+      expect(TokenRepoSpy.store).not.toHaveBeenCalled();
+    });
   });
 })();
