@@ -129,6 +129,7 @@
       expect: false,
       beforeEach: false,
       afterEach: false,
+      spyOn: false,
 
       // protractor
       browser: false,
