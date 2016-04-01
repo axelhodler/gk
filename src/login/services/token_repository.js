@@ -6,6 +6,11 @@
       return {
         store: function(token) {
           LocalForage.setItem('jwt', token);
+        },
+        fetchToken: function() {
+          return LocalForage.getItem('jwt').then(function(token) {
+            return token;
+          });
         }
       }
     });
