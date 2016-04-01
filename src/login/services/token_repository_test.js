@@ -18,7 +18,7 @@
             then: function() {
               return this.value;
             }.bind(this)
-          }
+          };
         }
       };
       $provide.value("LocalForage", LocalForageMock);
@@ -47,5 +47,5 @@
         expect(TokenRepo.fetchToken()).toBe('webtoken');
       });
     });
-  })
+  });
 })();
