@@ -48,6 +48,7 @@
     shell.mv(GENERATED_INDEX_HTML, DIST_DIR + '/' + INDEX_HTML);
     shell.cp('src/map/templates/restaurant.html', templateDir);
     shell.cp('src/map/templates/map_marker_window.html', templateDir);
+    shell.cp('src/login/templates/login_page.html', templateDir);
     shell.cp('style.css', DIST_DIR);
   });
 

@@ -8,7 +8,7 @@
   ])
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/login', {
-        templateUrl: 'login/templates/login-page.html',
+        templateUrl: 'src/login/templates/login_page.html',
         controller: 'LoginPageController'
       });
     }]);
