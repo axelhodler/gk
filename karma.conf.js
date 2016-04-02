@@ -13,7 +13,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'vendor/angular/angular.js',
-      'vendor/angular-mocks/angular-mocks.js',
+      'vendor/dev/angular-mocks-1.5.3.js',
       'vendor/angular-google-maps/dist/angular-google-maps.js',
       'vendor/angular-resource/angular-resource.js',
       'vendor/angular-simple-logger/dist/angular-simple-logger.js',
