@@ -23,12 +23,14 @@
     var result = uglify.minify([
       VENDOR_DIR + '/angular/angular.js',
       VENDOR_DIR + '/angular-resource/angular-resource.js',
+      VENDOR_DIR + '/angular-route/angular-route.js',
       VENDOR_DIR + '/lodash/lodash.js',
       VENDOR_DIR + '/angular-google-maps/dist/angular-google-maps.js',
       VENDOR_DIR + '/angular-simple-logger/dist/angular-simple-logger.js',
       'src/app.js',
       'src/common/common.js',
-      'src/map/restaurant_map.js']);
+      'src/map/restaurant_map.js',
+      'src/login/controllers/login_page.js']);
 
     fs.writeFile(MINIFIED_APP, result.code, function(err) {
       if (err) throw err;
@@ -47,6 +49,7 @@
     shell.mv(GENERATED_INDEX_HTML, DIST_DIR + '/' + INDEX_HTML);
     shell.cp('src/map/templates/restaurant.html', templateDir);
     shell.cp('src/map/templates/map_marker_window.html', templateDir);
+    shell.cp('src/login/templates/login_page.html', templateDir);
     shell.cp('style.css', DIST_DIR);
   });
 

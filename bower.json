@@ -5,6 +5,7 @@
     "angular-google-maps": "~2.3",
     "angular": "~1.4.4",
     "angular-resource": "~1.4.4",
+    "angular-route": "~1.4.4",
     "lodash": "3.10.1",
     "angular-simple-logger": "~0.1.5"
   },
