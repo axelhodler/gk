@@ -4,22 +4,9 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div ng-controller="GourmetklubController as gourmetklub">
-      <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-        <div ng-repeat="restaurant in restaurants">
-          <ui-gmap-marker
-            ng-click='onMarkerClicked(m)'
-            idkey='restaurant.id'
-            coords='{latitude: restaurant.lat, longitude: restaurant.lng}'
-            options='{"labelClass":"marker_labels","labelAnchor":"22 0", "labelContent": restaurant.name}'>
-            <div map-marker-window restaurant="restaurant"></div>
-
-          </ui-gmap-marker>
-        </div>
-      </ui-gmap-google-map>
-    </div>
 
     <div ng-view></div>
+
     <!-- begin_autoreplace_with_uglyfied -->
     <script src="vendor/angular-1.5.3.js"></script>
     <script src="vendor/angular-resource-1.5.3.js"></script>
