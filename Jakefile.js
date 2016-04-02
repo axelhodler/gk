@@ -29,7 +29,8 @@
       VENDOR_DIR + '/angular-simple-logger/dist/angular-simple-logger.js',
       'src/app.js',
       'src/common/common.js',
-      'src/map/restaurant_map.js']);
+      'src/map/restaurant_map.js',
+      'src/login/controllers/login_page.js']);
 
     fs.writeFile(MINIFIED_APP, result.code, function(err) {
       if (err) throw err;
