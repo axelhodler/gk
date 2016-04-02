@@ -23,7 +23,7 @@
     var result = uglify.minify([
       VENDOR_DIR + '/angular/angular.js',
       VENDOR_DIR + '/angular-resource/angular-resource.js',
-      VENDOR_DIR + '/angular-route/angular-route.js',
+      VENDOR_DIR + 'angular-route-1.5.3.js',
       VENDOR_DIR + '/lodash/lodash.js',
       VENDOR_DIR + '/angular-google-maps/dist/angular-google-maps.js',
       VENDOR_DIR + '/angular-simple-logger/dist/angular-simple-logger.js',
