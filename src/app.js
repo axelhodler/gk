@@ -4,6 +4,7 @@
   angular.module('gourmetklub', [
     'ngRoute',
     'gk.restaurantMap',
+    'gk.common',
     'gk.login'
   ])
     .config(['$routeProvider', function($routeProvider) {

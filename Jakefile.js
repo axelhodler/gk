@@ -35,6 +35,7 @@
       'src/app.js',
       'src/common/common.js',
       'src/map/restaurant_map.js',
+      'src/login/login.js',
       'src/login/controllers/login_page.js']);
 
     fs.writeFile(MINIFIED_APP, result.code, function(err) {
