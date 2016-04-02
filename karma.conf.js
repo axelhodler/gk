@@ -12,12 +12,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'vendor/angular/angular.js',
+      'vendor/angular-1.5.3.js',
       'vendor/dev/angular-mocks-1.5.3.js',
-      'vendor/angular-google-maps/dist/angular-google-maps.js',
-      'vendor/angular-resource/angular-resource.js',
-      'vendor/angular-simple-logger/dist/angular-simple-logger.js',
-      'vendor/lodash/lodash.js',
+      'vendor/angular-google-maps-2.3.2.js',
+      'vendor/angular-resource-1.5.3.js',
+      'vendor/angular-simple-logger-0.1.7.js',
+      'vendor/lodash-4.7.0.js',
       'src/**/*.js',
       'src/login/templates/login_form.html',
       'src/map/templates/restaurant.html'
