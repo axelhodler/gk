@@ -3,7 +3,8 @@
 
   angular.module('gourmetklub', [
     'ngRoute',
-    'gk.restaurantMap'
+    'gk.restaurantMap',
+    'gk.login'
   ])
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/login', {
