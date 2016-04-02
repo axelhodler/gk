@@ -1,5 +1,4 @@
 .idea
-vendor
 app.min.js
 dist/
 # binaries of the dependencies after npm rebuild

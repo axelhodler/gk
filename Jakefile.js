@@ -18,15 +18,20 @@
 
   var SMOKE_TASK = 'smoke';
 
+  desc('runs app on localhost:8080');
+  task('run', function() {
+    shell.exec('./node_modules/http-server/bin/http-server');
+  });
+
   desc('minifies source');
   task('minify', function() {
     var result = uglify.minify([
-      VENDOR_DIR + '/angular/angular.js',
-      VENDOR_DIR + '/angular-resource/angular-resource.js',
-      VENDOR_DIR + '/angular-route/angular-route.js',
-      VENDOR_DIR + '/lodash/lodash.js',
-      VENDOR_DIR + '/angular-google-maps/dist/angular-google-maps.js',
-      VENDOR_DIR + '/angular-simple-logger/dist/angular-simple-logger.js',
+      VENDOR_DIR + '/angular-1.5.3.js',
+      VENDOR_DIR + '/angular-resource-1.5.3.js',
+      VENDOR_DIR + '/angular-route-1.5.3.js',
+      VENDOR_DIR + '/lodash-4.7.0.js',
+      VENDOR_DIR + '/angular-google-maps-2.3.2.js',
+      VENDOR_DIR + '/angular-simple-logger-0.1.7.js',
       'src/app.js',
       'src/common/common.js',
       'src/map/restaurant_map.js',
