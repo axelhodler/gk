@@ -18,6 +18,11 @@
 
   var SMOKE_TASK = 'smoke';
 
+  desc('runs app on localhost:8080');
+  task('run', function() {
+    shell.exec('./node_modules/http-server/bin/http-server');
+  });
+
   desc('minifies source');
   task('minify', function() {
     var result = uglify.minify([
