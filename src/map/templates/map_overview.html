@@ -1,0 +1,12 @@
+<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+  <div ng-repeat="restaurant in restaurants">
+    <ui-gmap-marker
+      ng-click='onMarkerClicked(m)'
+      idkey='restaurant.id'
+      coords='{latitude: restaurant.lat, longitude: restaurant.lng}'
+      options='{"labelClass":"marker_labels","labelAnchor":"22 0", "labelContent": restaurant.name}'>
+      <div map-marker-window restaurant="restaurant"></div>
+
+    </ui-gmap-marker>
+  </div>
+</ui-gmap-google-map>
