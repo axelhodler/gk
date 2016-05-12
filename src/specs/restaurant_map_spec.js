@@ -1,8 +1,6 @@
 (function () {
   'use strict';
 
-  var fs = require('fs');
-
   describe('Restaurant map', function() {
     it('displays restaurant markers containing restaurant summary', function() {
       browser.get('http://0.0.0.0:8080/');
