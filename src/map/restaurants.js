@@ -126,6 +126,55 @@ function Restaurants() {
           "address": "Rotebühlplatz 10, 70173 Stuttgart",
           "lat": "48.775",
           "lng": "9.1732"
+        },
+        {
+          "id": 18,
+          "name": "Sultan Saray",
+          "address": "Rotebühlstraße 53, 70178 Stuttgart",
+          "lat": "48.77317",
+          "lng": "9.16833"
+        },
+        {
+          "id": 19,
+          "name": "Thai Thaani",
+          "address": "Neckarstr. 246, 70190 Stuttgart",
+          "lat": "48.794605",
+          "lng": "9.204966"
+        },
+        {
+          "id": 20,
+          "name": "Takeshii",
+          "address": "Esslingerstrasse 12, 70182 Stuttgart",
+          "lat": "48.77407",
+          "lng": "9.18188"
+        },
+        {
+          "id": 21,
+          "name": "Kurose",
+          "address": "Rotebühlstrasse 50, 70178 Stuttgart",
+          "lat": "48.7731966",
+          "lng": "9.1666469"
+        },
+        {
+          "id": 22,
+          "name": "[m]eatery bar",
+          "address": "Kronprinzstrasse 24, 70173 Stuttgart",
+          "lat": "48.7758",
+          "lng": "9.1742"
+        },
+        {
+          "id": 23,
+          "name": "Achillion",
+          "address": "Schwabstrasse 75, 70197 Stuttgart",
+          "lat": "48.77306",
+          "lng": "9.15611"
+        },
+        {
+          "id": 24,
+          "name": "Fatousch",
+          "address": "Sigmaringerstrasse 68, 70567 Stuttgart",
+          "lat": "48.7285716",
+          "lng": "9.1524875"
         }
       ]
     }
