@@ -15,7 +15,6 @@ module.exports = function(config) {
       'vendor/angular-1.5.3.js',
       'vendor/dev/angular-mocks-1.5.3.js',
       'vendor/angular-google-maps-2.3.2.js',
-      'vendor/angular-resource-1.5.3.js',
       'vendor/angular-simple-logger-0.1.7.js',
       'vendor/lodash-4.7.0.js',
       'src/app.js',

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app = angular.module('gk.restaurantMap', ['uiGmapgoogle-maps', 'ngResource', 'gk.common']);
+  var app = angular.module('gk.restaurantMap', ['uiGmapgoogle-maps', 'gk.common']);
 
   app.controller('GourmetklubController', ['$scope', 'uiGmapGoogleMapApi', 'Restaurants',
     function($scope, uiGmapGoogleMapApi, Restaurants) {

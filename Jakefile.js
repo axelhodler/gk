@@ -27,7 +27,6 @@
   task('minify', function() {
     var result = uglify.minify([
       VENDOR_DIR + '/angular-1.5.3.js',
-      VENDOR_DIR + '/angular-resource-1.5.3.js',
       VENDOR_DIR + '/angular-route-1.5.3.js',
       VENDOR_DIR + '/lodash-4.7.0.js',
       VENDOR_DIR + '/angular-google-maps-2.3.2.js',
