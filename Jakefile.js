@@ -34,6 +34,7 @@
       'src/app.js',
       'src/common/common.js',
       'src/map/restaurant_map.js',
+      'src/map/restaurants.js',
       'src/login/login.js',
       'src/login/controllers/login_page.js']);
 
