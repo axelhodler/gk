@@ -34,6 +34,7 @@
       'src/app.js',
       'src/common/common.js',
       'src/map/restaurant_map.js',
+      'src/map/restaurants.js',
       'src/login/login.js',
       'src/login/controllers/login_page.js']);
 
@@ -53,6 +54,7 @@
     shell.cp(MINIFIED_APP, DIST_DIR);
     shell.mv(GENERATED_INDEX_HTML, DIST_DIR + '/' + INDEX_HTML);
     shell.cp('src/map/templates/restaurant.html', templateDir);
+    shell.cp('src/map/templates/map_overview.html', templateDir);
     shell.cp('src/map/templates/map_marker_window.html', templateDir);
     shell.cp('src/login/templates/login_page.html', templateDir);
     shell.cp('style.css', DIST_DIR);

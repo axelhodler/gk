@@ -5,3 +5,4 @@ dist/
 node_modules/fsevents/lib/
 node_modules/phantomjs-prebuilt/lib/location.js
 node_modules/phantomjs/lib/location.js
+.DS_Store
