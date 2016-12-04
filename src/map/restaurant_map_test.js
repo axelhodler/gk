@@ -6,8 +6,7 @@
       httpBackend,
       scope,
       compile,
-      restaurant,
-      restUrl;
+      restaurants;
 
     beforeEach(function() {
       module('gk.restaurantMap');
@@ -15,13 +14,12 @@
     });
 
     beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_,
-                               _$compile_, _Restaurant_, _REST_URL_){
+                               _$compile_, _Restaurants_) {
       $controller = _$controller_;
       httpBackend = _$httpBackend_;
       scope = _$rootScope_;
       compile = _$compile_;
-      restaurant = _Restaurant_;
-      restUrl = _REST_URL_;
+      restaurants = _Restaurants_;
     }));
 
     var uiGmapGoogleMapsStub = {
@@ -33,27 +31,24 @@
     var $scope, controller;
 
     beforeEach(function() {
+      var allRestaurants = {restaurants: '{restaurantInfo}'};
+      spyOn(restaurants, 'all').and.returnValue(allRestaurants);
+
       $scope = {};
       var uiGmapGoogleMapApi = uiGmapGoogleMapsStub;
       controller = $controller('GourmetklubController',
-        { $scope: $scope,
+        {
+          $scope: $scope,
           uiGmapGoogleMapApi: uiGmapGoogleMapApi,
-          Restaurant: restaurant});
-    });
-
-    beforeEach(function() {
-      var restaurants = {restaurants: '{restaurantInfo}'};
-      httpBackend.whenGET(restUrl + '/restaurants')
-        .respond(restaurants);
+          Restaurants: restaurants
+        });
     });
 
     it('sets the restaurants on the scope', function() {
-      httpBackend.flush();
-
       expect($scope.restaurants).toBe('{restaurantInfo}');
     });
 
-    it('shows info window on clicking the marker', function () {
+    it('shows info window on clicking the marker', function() {
       var marker = {};
       $scope.onMarkerClicked(marker);
 
