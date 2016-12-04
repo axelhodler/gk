@@ -1,27 +1,20 @@
 (function() {
   'use strict';
 
-  var app = angular.module('gk.restaurantMap', ['uiGmapgoogle-maps', 'ngResource', 'gk.common']);
+  var app = angular.module('gk.restaurantMap', ['uiGmapgoogle-maps', 'gk.common']);
 
-  app.factory('Restaurant',['$resource', 'REST_URL', function($resource, REST_URL) {
-    return $resource(REST_URL + '/restaurants');
-  }]);
+  app.controller('GourmetklubController', ['$scope', 'uiGmapGoogleMapApi', 'Restaurants',
+    function($scope, uiGmapGoogleMapApi, Restaurants) {
+      $scope.restaurants = Restaurants.all().restaurants;
 
-  app.controller('GourmetklubController', ['$scope', 'uiGmapGoogleMapApi', 'Restaurant',
-    function($scope, uiGmapGoogleMapApi, Restaurant) {
+      uiGmapGoogleMapApi.then(function(maps) {
+        $scope.map = {center: {latitude: 48.775, longitude: 9.183}, zoom: 12};
+      });
 
-    Restaurant.get(function(data) {
-      $scope.restaurants = data.restaurants;
-    });
-
-    uiGmapGoogleMapApi.then(function(maps) {
-      $scope.map = { center: { latitude: 48.775 , longitude: 9.183 }, zoom: 12 };
-    });
-
-    $scope.onMarkerClicked = function(marker) {
-      marker.showWindow = true;
-    };
-  }]);
+      $scope.onMarkerClicked = function(marker) {
+        marker.showWindow = true;
+      };
+    }]);
 
   app.directive('mapMarkerWindow', function() {
     return {
