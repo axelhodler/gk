@@ -175,6 +175,41 @@ function Restaurants() {
           "address": "Sigmaringerstrasse 68, 70567 Stuttgart",
           "lat": "48.7285716",
           "lng": "9.1524875"
+        },
+        {
+          "id": 25,
+          "name": "Triple B - Beef Burger Brothers",
+          "address": "Hohenloher Str. 8, 70435 Stuttgart",
+          "lat": "48.8301288",
+          "lng": "9.1756158"
+        },
+        {
+          "id": 26,
+          "name": "Ampulle",
+          "address": "Augustenstraße 31A, 70178 Stuttgart",
+          "lat": "48.7713301",
+          "lng": "9.1662226"
+        },
+        {
+          "id": 27,
+          "name": "Viet Wok",
+          "address": "Kronenstraße 45, 70174 Stuttgart",
+          "lat": "48.7840076",
+          "lng": "9.175623"
+        },
+        {
+          "id": 28,
+          "name": "KayDoe",
+          "address": "Wilhelm-Geiger-Platz 8, 70469 Stuttgart-Feuerbach",
+          "lat": "48.8118711",
+          "lng": "9.1584867"
+        },
+        {
+          "id": 29,
+          "name": "Shima",
+          "address": "Olgastra. 86, 70180 Stuttgart",
+          "lat": "48.7698871",
+          "lng": "9.1803448"
         }
       ]
     }
