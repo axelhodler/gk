@@ -210,6 +210,13 @@ function Restaurants() {
           "address": "Olgastra. 86, 70180 Stuttgart",
           "lat": "48.7698871",
           "lng": "9.1803448"
+        },
+        {
+          "id": 30,
+          "name": "Taverna Yol",
+          "address": "Spittastr. 2, 70193 Stuttgart",
+          "lat": "48.775070",
+          "lng": "9.151830"
         }
       ]
     }
