@@ -217,6 +217,13 @@ function Restaurants() {
           "address": "Spittastr. 2, 70193 Stuttgart",
           "lat": "48.775070",
           "lng": "9.151830"
+        },
+        {
+          "id": 31,
+          "name": "Zum Spätzleschwob",
+          "address": "Vogelsangstraße 50, 70197 Stuttgart",
+          "lat": "48.774130",
+          "lng": "9.152283"
         }
       ]
     }
