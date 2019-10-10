@@ -224,6 +224,13 @@ function Restaurants() {
           "address": "Vogelsangstraße 50, 70197 Stuttgart",
           "lat": "48.774130",
           "lng": "9.152283"
+        },
+        {
+          "id": 32,
+          "name": "Alte Wache",
+          "address": "Hölderlinstraße 57, 70193 Stuttgart",
+          "lat": "48.783495",
+          "lng": "9.158461"
         }
       ]
     }
