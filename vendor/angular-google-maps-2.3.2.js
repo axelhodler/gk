@@ -92,6 +92,7 @@ Nicholas McCready - https://twitter.com/nmccready
           scriptElem.parentNode.removeChild(scriptElem);
         }
         query = query.join('&');
+        query = query += "&key=AIzaSyB0ocbKv7z9JUfhJfedJFi6-8vxzYGpXYY"
         script = document.createElement('script');
         script.id = scriptId = "ui_gmap_map_load_" + (uuid.generate());
         script.type = 'text/javascript';
