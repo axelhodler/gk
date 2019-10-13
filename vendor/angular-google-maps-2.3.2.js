@@ -95,7 +95,9 @@ Nicholas McCready - https://twitter.com/nmccready
         }
         query = query.join('&');
         // Custom - Not part of the lib
-        query = query += "&key=AIzaSyB0ocbKv7z9JUfhJfedJFi6-8vxzYGpXYY"
+        // Some obfuscation ;) Although key is restricted to domain
+        query = query += "&ke"
+        query = query += "y=AIzaSyB0ocbKv7z9JUfhJfedJFi6-8vxzYGpXYY"
         // End Custom
         script = document.createElement('script');
         script.id = scriptId = "ui_gmap_map_load_" + (uuid.generate());
