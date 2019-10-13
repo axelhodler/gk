@@ -1,6 +1,8 @@
 /*! angular-google-maps 2.3.2 2016-02-11
  *  AngularJS directives for Google Maps
  *  git: https://github.com/angular-ui/angular-google-maps.git
+ *
+ *  Customized due to updates to google maps api handling
  */
 ;
 (function( window, angular, undefined ){
@@ -92,7 +94,9 @@ Nicholas McCready - https://twitter.com/nmccready
           scriptElem.parentNode.removeChild(scriptElem);
         }
         query = query.join('&');
+        // Custom - Not part of the lib
         query = query += "&key=AIzaSyB0ocbKv7z9JUfhJfedJFi6-8vxzYGpXYY"
+        // End Custom
         script = document.createElement('script');
         script.id = scriptId = "ui_gmap_map_load_" + (uuid.generate());
         script.type = 'text/javascript';
